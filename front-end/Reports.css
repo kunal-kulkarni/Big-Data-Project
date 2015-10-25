@@ -1,0 +1,110 @@
+#tabs .ui-tabs-nav li {
+    float: left;
+    list-style-type: none;
+    background: #d0d0d0;
+    margin: 0 0.5em 0 0;
+    padding: 0.25em 1em;
+}
+
+#tabs .ui-tabs-nav li.ui-tabs-selected {
+    background: #FFA62F;
+}
+
+#tabs-nobg { 
+    padding: 0px; 
+} 
+#tabs-nobg .ui-tabs-nav { 
+    background: transparent; 
+    border-width: 0px 0px 1px 0px; 
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    border-radius: 0px; 
+} 
+#tabs-nobg .ui-tabs-panel { 
+    margin: 0em 0.2em 0.2em 0.2em; 
+}
+
+
+.axis {
+   font: 10px sans-serif;
+ }
+
+ .axis path,
+ .axis line {
+   fill: none;
+   stroke: #000;
+   shape-rendering: crispEdges;
+ }
+ .bar {
+  fill: steelblue;
+}
+ .bar:hover {
+  fill: orangered ;
+}
+
+.bar1 {
+  fill: green;
+}
+ .bar1:hover {
+  fill: orangered ;
+}
+
+.bar3 {
+  fill: brown;
+}
+ .bar3:hover {
+  fill: orangered ;
+}
+
+.bar4 {
+  fill: #800080;
+}
+ .bar4:hover {
+  fill: orangered ;
+}
+
+.bar5 {
+  fill: #CCCC00;
+}
+ .bar5:hover {
+  fill: orangered ;
+}
+
+body {
+    background-color: #FFE5B4;
+}
+
+.btn {
+    background-color:lightgreen;
+    cursor:pointer;
+}
+.btn:hover { background: orange; }
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" type="text/css" href="Reports.css">
+
+</head>
+
+<body>
+
+  <h1 align="center" style="color:#1F45FC">Campaign Performance Insights</h1>
+  <br>
+
+  <strong style="color: #493D26">Data Provider  </strong><select id="dataprovider" style="background-color:#87CEFA">
+    <option value="turn">Turn</option>
+    <option value="chango">Chango</option>
+  </select>&nbsp; &nbsp; &nbsp; &nbsp; 
+  <strong style="color: #493D26">From Date </strong><input type="text" id="startdate" size="20" style="background-color:#FFFFE0"/>     &nbsp; 
+  <strong style="color: #493D26">To Date </strong><input type="text" id="enddate" size="20" style="background-color:#FFFFE0"/>&nbsp; &nbsp; &nbsp; 
+  <strong style="color: #493D26">Campaign </strong><select id="campaign" style="background-color:#B0E0E6">
+    <option value="All" selected="selected">All</option>
+    <option value="17087">17087</option>
+    <option value="20379">20379</option>
+    <option value="20844">20844</option>
+    <option value="20074">20074</option>
+    <option value="20248">20248</option>
+    <option value="20843">20843</option>
+    <option value="21060">21060</option>
+    <option value="21415">21415</option>
+    <option value="17794">17794</option>
+    <option value="21072">21072</option>
+    <option value="1600007695">1600007695</option>
+    <option value="1600761240">1600761240</option>
+    <option value="1600354177">1600354177</option>
+    <option value="1601049440">1601049440</option>
+    <option value="1519480712">1519480712</option>
+    <option value="1601580335">1601580335</option>
+    <option value="1600650811">1600650811</option>
+    <option value="1600146530">1600146530</option>
+    <option value="1600484239">1600484239</option>
+    <option value="1601528184">1601528184</option>
+  </select>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  <button type="button" class="btn" style="width: 120px;  height: 35px; border-radius: 40px;" onclick="loadXMLDoc()">Generate_Reports</button>
+  <br><br>
+  <div style="position:relative; top: 5px; border: 2px solid red;"></div>
+
+  <div id="tod_report" style="visibility: hidden">
+
+  <div id="tabs" style="color: orange; height:55px;">
+
+    <ul style="background-color: orange;">
+      <li><a href="#tabs-1" style="color: red;">Impressions</a></li>
+      <li><a href="#tabs-2" style="color: red;">Clicks</a></li>
+      <li><a href="#tabs-3" style="color: red;">Conversions</a></li>
+    </ul>
+
+    <div id="tabs-1">
+
+      <h3 style="position: absolute; left: 40px; top: 140px; color: #493D26">Impressions by Day of Week</h3>
+      <div id="myDiv11" style="position: absolute; left: 75px; top: 180px;"></div>
+      <div style="position: relative;  top: 600px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 680px; color: #493D26">Impressions by Time of Day</h3>
+      <div id="myDiv10" style="position: absolute; left: 75px; top: 730px;"></div>
+      <div style="position: relative;  top: 1132px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 1210px; color: #493D26">Impression Frequency Bucket Count</h3>
+      <div id="myDiv3" style="position: absolute; left: 75px; top: 1240px;"></div>
+      <div style="position: relative;  top: 1635px; border: 2px solid red;"></div>
+
+    </div>
+
+
+    <div id="tabs-2">
+
+      <h3 style="position: absolute; left: 40px; top: 140px;">Clicks by Time of Day</h3>
+      <div id="myDiv12" style="position: absolute; left: 75px; top: 180px;"></div>
+      <div style="position: relative;  top: 600px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 680px;">Clicks by Day of Week</h3>
+      <div id="myDiv13" style="position: absolute; left: 75px; top: 710px;"></div>
+      <div style="position: relative;  top: 1110px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 1205px;">Click-Through-Rate by Time of Day</h3>
+      <div id="myDiv5" style="position: absolute; left: 75px; top: 1245px;"></div>
+      <div style="position: relative;  top: 1640px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 1730px;">Click-Through-Rate by Day of Week</h3>
+      <div id="myDiv6" style="position: absolute; left: 75px; top: 1780px;"></div>
+      <div style="position: relative;  top: 2180px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 2280px;">Click Frequency Count</h3>
+      <div id="myDiv16" style="position: absolute; left: 75px; top: 2320px;"></div>
+      <div style="position: relative;  top: 2720px; border: 2px solid red;"></div>
+
+    </div>
+
+
+    <div id="tabs-3">
+
+      <h3 style="position: absolute; left: 40px; top: 110px;">Conversions by Time of Day</h3>
+      <div style="position: absolute; left: 380px; top: 185px;">
+      <div style="display: inline-block; font-size: 100%;"><strong>Total Number of Conversions </strong></div>
+      <div id="total" style="display: inline-block; font-size: 100%;"></div>
+      </div>
+      <div id="myDiv1" style="position: absolute; left: 75px; top: 190px;"></div>
+      <div style="position: relative;  top: 595px; border: 2px solid red;"></div>
+
+      <div id="domain">
+      <h3 style="position: absolute; left: 40px; top: 2970px;">Top 10 Domains</h3>
+      <div id="myDiv2" style="position: absolute; left: 75px; top: 3010px;"></div>
+      </div>
+
+      <h3 style="position: absolute; left: 40px; top: 680px;">Conversions by Day of Week</h3>
+      <div id="myDiv4" style="position: absolute; left: 45px; top: 710px;"></div>
+      <div style="position: relative;  top: 1145px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 760px; top: 680px;">Conversion Attribute</h3>
+      <div id="myDiv7" style="position: absolute; left: 640px; top: 770px;"></div>
+      <div id="myDiv8" style="position: absolute; left: 790px; top: 740px;"></div>
+      <div id="myDiv9" style="position: absolute; left: 770px; top: 1170px;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 1240px;">Conversion-Impression Lag</h3>
+      <div id="myDiv14" style="position: absolute; left: 75px; top: 1275px;"></div>
+      <div style="position: relative;  top: 1690px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 1800px;">Conversion-Impression Rate CVR by Day Of Week</h3>
+      <div id="myDiv17" style="position: absolute; left: 75px; top: 1835px;"></div>
+      <div style="position: relative;  top: 2230px; border: 2px solid red;"></div>
+
+      <h3 style="position: absolute; left: 40px; top: 2320px;">Conversion-Impression Rate CVR by Time Of Day</h3>
+      <div id="myDiv18" style="position: absolute; left: 75px; top: 2370px;"></div>
+      <div style="position: relative;  top: 2830px; border: 2px solid red;"></div>
+         
+    </div>
+
+  </div>
+  </div>
+
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>  
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>  
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script src="jQueryHelperFunctions.js"></script>
+  <script src="D3Reports.js"></script>
+  
+</body>
+</html>
